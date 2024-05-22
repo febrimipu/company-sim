@@ -79,9 +79,9 @@
                                     <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
                                 </svg>
 
-                                @if (auth()->user()->unreadNotifications->count() !== 0)
+                                {{-- @if (auth()->user()->unreadNotifications->count() !== 0)
                                     <span class="badge bg-red"></span>
-                                @endif
+                                @endif --}}
                             </a>
                             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
 
@@ -155,7 +155,7 @@
                             </div>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="{{ route('profile.edit') }}" class="dropdown-item">
+                            {{-- <a href="{{ route('profile.edit') }}" class="dropdown-item"> --}}
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon dropdown-item-icon icon-tabler icon-tabler-settings" width="24"
                                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
@@ -168,7 +168,7 @@
                                 </svg>
                                 Account
                             </a>
-                            <form action="{{ route('logout') }}" method="post">
+                            {{-- <form action="{{ route('logout') }}" method="post"> --}}
                                 @csrf
                                 <button type="submit" class="dropdown-item">
                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -244,7 +244,7 @@
 
 
                             <li class="nav-item {{ request()->is('products*') ? 'active' : null }}">
-                                <a class="nav-link" href="{{ route('products.index') }}">
+                                {{-- <a class="nav-link" href="{{ route('products.index') }}"> --}}
                                     <span
                                         class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -296,7 +296,7 @@
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
-                                            <a class="dropdown-item" href="{{ route('orders.index') }}">
+                                            {{-- <a class="dropdown-item" href="{{ route('orders.index') }}">
                                                 {{ __('All') }}
                                             </a>
                                             <a class="dropdown-item" href="{{ route('orders.complete') }}">
@@ -307,7 +307,7 @@
                                             </a>
                                             <a class="dropdown-item" href="{{ route('due.index') }}">
                                                 {{ __('Due') }}
-                                            </a>
+                                            </a> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -339,7 +339,7 @@
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
-                                            <a class="dropdown-item" href="{{ route('purchases.index') }}">
+                                            {{-- <a class="dropdown-item" href="{{ route('purchases.index') }}">
                                                 {{ __('All') }}
                                             </a>
                                             <a class="dropdown-item"
@@ -349,7 +349,7 @@
                                             <a class="dropdown-item"
                                                 href="{{ route('purchases.purchaseReport') }}">
                                                 {{ __('Daily Purchase Report') }}
-                                            </a>
+                                            </a> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -358,7 +358,7 @@
 
 
                             <li class="nav-item {{ request()->is('quotations*') ? 'active' : null }}">
-                                <a class="nav-link" href="{{ route('quotations.index') }}">
+                                {{-- <a class="nav-link" href="{{ route('quotations.index') }}"> --}}
                                     <span
                                         class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -402,12 +402,12 @@
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
-                                            <a class="dropdown-item" href="{{ route('suppliers.index') }}">
+                                            {{-- <a class="dropdown-item" href="{{ route('suppliers.index') }}">
                                                 {{ __('Suppliers') }}
                                             </a>
                                             <a class="dropdown-item" href="{{ route('customers.index') }}">
                                                 {{ __('Customers') }}
-                                            </a>
+                                            </a> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -440,11 +440,11 @@
                                             {{-- <a class="dropdown-item" href="{{ route('users.index') }}">
                                                     {{ __('Users') }}
                                                 </a> --}}
-                                            <a class="dropdown-item" href="{{ route('categories.index') }}">
+                                            {{-- <a class="dropdown-item" href="{{ route('categories.index') }}">
                                                 {{ __('Categories') }}
                                             </a>
                                             <a class="dropdown-item" href="{{ route('units.index') }}">
-                                                {{ __('Units') }}
+                                                {{ __('Units') }} --}}
                                             </a>
                                         </div>
                                     </div>
