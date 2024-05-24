@@ -10,11 +10,13 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- CSS files -->
-    <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/css/tabler-flags.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/css/tabler-vendors.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('dist/css/demo.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('dist/css/demo.min.css') }}" rel="stylesheet" /> --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 
     <style>
         @import url('https://rsms.me/inter/inter.css');
@@ -34,11 +36,11 @@
 
     {{-- - Page Styles - --}}
     @stack('page-styles')
-    @livewireStyles
+    {{-- @livewireStyles --}}
 </head>
 
 <body>
-    <script src="{{ asset('dist/js/demo-theme.min.js') }}"></script>
+    {{-- <script src="{{ asset('dist/js/demo-theme.min.js') }}"></script> --}}
 
     <div class="page">
         <header class="navbar navbar-expand-md d-print-none">
@@ -168,7 +170,7 @@
                                 </svg>
                                 Account
                             </a>
-                            {{-- <form action="{{ route('logout') }}" method="post"> --}}
+                            <form action="{{ route('logout') }}" method="post">
                                 @csrf
                                 <button type="submit" class="dropdown-item">
                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -244,7 +246,7 @@
 
 
                             <li class="nav-item {{ request()->is('products*') ? 'active' : null }}">
-                                {{-- <a class="nav-link" href="{{ route('products.index') }}"> --}}
+                                <a class="nav-link" href="{{ route('products.index') }}">
                                     <span
                                         class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -296,7 +298,7 @@
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
-                                            {{-- <a class="dropdown-item" href="{{ route('orders.index') }}">
+                                            <a class="dropdown-item" href="{{ route('orders.index') }}">
                                                 {{ __('All') }}
                                             </a>
                                             <a class="dropdown-item" href="{{ route('orders.complete') }}">
@@ -307,7 +309,7 @@
                                             </a>
                                             <a class="dropdown-item" href="{{ route('due.index') }}">
                                                 {{ __('Due') }}
-                                            </a> --}}
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -533,8 +535,8 @@
     <!-- Libs JS -->
     @stack('page-libraries')
     <!-- Tabler Core -->
-    <script src="{{ asset('dist/js/tabler.min.js') }}" defer></script>
-    <script src="{{ asset('dist/js/demo.min.js') }}" defer></script>
+    {{-- <script src="{{ asset('dist/js/tabler.min.js') }}" defer></script>
+    <script src="{{ asset('dist/js/demo.min.js') }}" defer></script> --}}
     {{-- - Page Scripts - --}}
     @stack('page-scripts')
 

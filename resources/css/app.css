@@ -1,7 +1,3 @@
-@import './admin.css';
-@import './demo.min.css';
-@import './tabler-flags.min.css';
-@import './tabler-payments.min.css';
-@import './tabler-social.min.css';
-@import './tabler-vendors.min.css';
-@import './tabler.min.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
