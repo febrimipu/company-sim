@@ -30,11 +30,11 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::resource('/products', ProductController::class);
 
 Route::resource('/orders', OrderController::class);
 
-Route::get('/orders/completed', [OrderController::class, 'index'])->name('orders.completed');
+Route::get('/orders/completed', [OrderController::class, 'index'])->name('orders.complete');
 Route::get('/orders/pending', [OrderPendingController::class, 'index'])->name('orders.pending');
 
 Route::resource('/purchases', PurchaseController::class);

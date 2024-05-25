@@ -20,7 +20,7 @@
                     </x-nav-link>
                 
                     <!-- Dropdown for Orders -->
-                    <div class="hidden sm:flex sm:items-center sm:ms-6"> 
+                    <div class="hidden sm:flex sm:items-center sm:ms-10"> 
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <x-nav-link :href="'#'" :active="request()->routeIs('orders*')">
@@ -31,7 +31,7 @@
                                 <x-dropdown-link :href="route('orders.pending')">
                                     {{ __('Pending Orders') }}
                                 </x-dropdown-link>
-                                <x-dropdown-link :href="route('orders.completed')">
+                                <x-dropdown-link :href="route('orders.complete')">
                                     {{ __('Completed Orders') }}
                                 </x-dropdown-link>
                             </x-slot>
