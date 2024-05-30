@@ -1,36 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta19
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dashboard - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+    <!-- CSS files -->
+    <link href="{{ asset('dist/css/tabler.min.css?1684106062')}}" rel="stylesheet" />
+    <link href="{{ asset('dist/css/tabler-flags.min.css?1684106062')}}" rel="stylesheet" />
+    <link href="{{ asset('dist/css/tabler-payments.min.css?1684106062')}}" rel="stylesheet" />
+    <link href="{{ asset('dist/css/tabler-vendors.min.css?1684106062')}}" rel="stylesheet" />
+    <link href="{{ asset('dist/css/demo.min.css?1684106062')}}" rel="stylesheet" />
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        :root {
+            --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+        }
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+        body {
+            font-feature-settings: "cv03", "cv04", "cv11";
+        }
+    </style>
+    <!-- Scripts -->
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+</head>
 
-            <!-- Page Heading -->
+<body>
+    <script src="{{ asset('dist/js/demo-theme.min.js?1684106062')}}"></script>
+    <div class="page">
+        <!-- Navbar -->
+        @include('partials.navigation.navbar')
+        @include('partials.navigation.menu')
+        <div class="page-wrapper">
+            <!-- Page header -->
             @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                <header class="page-header d-print-none">
+                    <div class="container-xl">
+                        <div class="row g-2 align-items-center">
+                            {{ $header }}
+                        </div>
                     </div>
                 </header>
             @endif
 
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+            @yield('page-body')
+            @yield('content')
+
         </div>
-    </body>
+    </div>
+    {{-- Footer --}}
+    @include('partials.footer.bottom')
+
+   
+
+    {{-- Libs Scripts  --}}
+    @stack('libraries-scripts')
+
+    <script src="{{ asset('dist/js/tabler.min.js') }}" defer></script>
+    <script src="{{ asset('dist/js/demo.min.js') }}" defer></script>
+
+    {{-- - Page Scripts - --}}
+    @stack('page-scripts')
+
+    {{-- @livewireScripts --}}
+</body>
+
 </html>

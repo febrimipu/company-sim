@@ -1,0 +1,43 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-x6fFUQ6F.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/demo.min.css": {
+    "file": "assets/demo-BpjDFp_V.css",
+    "src": "resources/css/demo.min.css",
+    "isEntry": true
+  },
+  "resources/css/tabler-flags.min.css": {
+    "file": "assets/tabler-flags-C0jl-a7Z.css",
+    "src": "resources/css/tabler-flags.min.css",
+    "isEntry": true
+  },
+  "resources/css/tabler-payments.min.css": {
+    "file": "assets/tabler-payments-CcsPwG_Y.css",
+    "src": "resources/css/tabler-payments.min.css",
+    "isEntry": true
+  },
+  "resources/css/tabler-vendors.min.css": {
+    "file": "assets/tabler-vendors-DJgiZEC4.css",
+    "src": "resources/css/tabler-vendors.min.css",
+    "isEntry": true
+  },
+  "resources/css/tabler.min.css": {
+    "file": "assets/tabler-IOEnjba0.css",
+    "src": "resources/css/tabler.min.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BVcNX1_2.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-DrKqg2nF.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}

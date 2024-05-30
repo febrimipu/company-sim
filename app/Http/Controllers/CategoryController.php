@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -11,7 +12,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::where('user_id')->first();
+
+        return view('categories.index', [
+            'category' => $categories,
+        ]);
     }
 
     /**
@@ -19,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -35,7 +40,11 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $categories= Category::where("user_id", $id)->first();
+        // dd($categories);
+        return view('categories.show', [
+            "category"=> $categories
+            ]);
     }
 
     /**
