@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @import './admin.css';
+@import './demo.min.css';
+@import './tabler.min.css'; */

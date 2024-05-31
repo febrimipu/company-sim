@@ -11,6 +11,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Purchase\PurchaseController;
 use App\Http\Controllers\Quotation\QuotationController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\Product\ProductImportController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,14 +31,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+ // Route Products
 Route::resource('/products', ProductController::class);
+Route::get('products/import', [ProductController::class, 'create'])->name('products.import.view');
+Route::post('products/import/', [ProductImportController::class, 'store'])->name('products.export.store');
 
+
+
+ // Route Orders
 Route::resource('/orders', OrderController::class);
 
 Route::get('/orders/completed', [OrderController::class, 'index'])->name('orders.complete');
 Route::get('/orders/pending', [OrderPendingController::class, 'index'])->name('orders.pending');
 
+ // Route Purchases
 Route::resource('/purchases', PurchaseController::class);
 
 Route::get('/purchases/approved', [PurchaseController::class, 'approvedPurchases'])->name('purchases.approvedPurchases');
@@ -46,6 +54,7 @@ Route::resource('/quotations', QuotationController::class);
 Route::resource('/suppliers', SupplierController::class);
 Route::resource('/customers', CustomerController::class);
 Route::resource('/categories',CategoryController::class);
+Route::resource('/units', UnitController::class);
 
 
 require __DIR__.'/auth.php';
