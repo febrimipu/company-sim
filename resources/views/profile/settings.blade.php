@@ -1,4 +1,4 @@
-@extends('layouts.tabler')
+{{-- @extends('layouts.tabler')
 
 @section('content')
     <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
@@ -95,4 +95,4 @@
 
 @push('page-scripts')
     <script src="{{ asset('assets/js/img-preview.js') }}"></script>
-@endpush
+@endpush --}}

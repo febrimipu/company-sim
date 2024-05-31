@@ -15,11 +15,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Dashboard - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
     <!-- CSS files -->
-    <link href="{{ asset('dist/css/tabler.min.css?1684106062')}}" rel="stylesheet" />
-    <link href="{{ asset('dist/css/tabler-flags.min.css?1684106062')}}" rel="stylesheet" />
-    <link href="{{ asset('dist/css/tabler-payments.min.css?1684106062')}}" rel="stylesheet" />
-    <link href="{{ asset('dist/css/tabler-vendors.min.css?1684106062')}}" rel="stylesheet" />
-    <link href="{{ asset('dist/css/demo.min.css?1684106062')}}" rel="stylesheet" />
+    {{-- <link href="{{ asset('dist/css/tabler.min.css?1684106062')}}" rel="stylesheet" /> --}}
+    {{-- <link href="{{ asset('dist/css/tabler-flags.min.css?1684106062')}}" rel="stylesheet" /> --}}
+    {{-- <link href="{{ asset('dist/css/tabler-payments.min.css?1684106062')}}" rel="stylesheet" /> --}}
+    {{-- <link href="{{ asset('dist/css/tabler-vendors.min.css?1684106062')}}" rel="stylesheet" /> --}}
+    {{-- <link href="{{ asset('dist/css/demo.min.css?1684106062')}}" rel="stylesheet" /> --}}
     <style>
         @import url('https://rsms.me/inter/inter.css');
 
@@ -32,11 +32,11 @@
         }
     </style>
     <!-- Scripts -->
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/js/tabler.js', 'resources/sass/tabler.scss'])
 </head>
 
 <body>
-    <script src="{{ asset('dist/js/demo-theme.min.js?1684106062')}}"></script>
+    {{-- <script src="{{ asset('dist/js/demo-theme.min.js?1684106062')}}"></script> --}}
     <div class="page">
         <!-- Navbar -->
         @include('partials.navigation.navbar')
@@ -67,8 +67,8 @@
     {{-- Libs Scripts  --}}
     @stack('libraries-scripts')
 
-    <script src="{{ asset('dist/js/tabler.min.js') }}" defer></script>
-    <script src="{{ asset('dist/js/demo.min.js') }}" defer></script>
+    {{-- <script src="{{ asset('dist/js/tabler.min.js') }}" defer></script> --}}
+    {{-- <script src="{{ asset('dist/js/demo.min.js') }}" defer></script> --}}
 
     {{-- - Page Scripts - --}}
     @stack('page-scripts')

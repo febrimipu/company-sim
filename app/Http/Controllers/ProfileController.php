@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -26,15 +28,84 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+ 
+        $user = $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $rules = [
+            'name' => 'required|max:50',
+            'photo' => 'image|file|max:1024',
+            'email' => 'required|email|max:50|unique:users,email,' . $user->id,
+            'username' => 'required|min:4|max:25|alpha_dash:ascii|unique:users,username,' . $user->id
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        if ($validatedData['email'] != $user->email) {
+            $validatedData['email_verified_at'] = null;
         }
 
-        $request->user()->save();
+        /**
+         * Handle upload image
+         */
+        if ($file = $request->file('photo')) {
+            $fileName = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+            $path = 'public/profile/';
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+            /**
+             * Delete an image if exists.
+             */
+            if ($user->photo) {
+                Storage::delete($path . $user->photo);
+            }
+
+            /**
+             * Store an image to Storage.
+             */
+            $file->storeAs($path, $fileName);
+            $validatedData['photo'] = $fileName;
+        }
+
+        User::where('id', $user->id)->update($validatedData);
+
+        return redirect()
+            ->route('profile.edit')
+            ->with('success', 'Profile has been updated!');
+    
+    }
+    public function settings(Request $request)
+    {
+        return view('profile.settings', [
+            'user' => $request->user(),
+        ]);
+    }
+
+    public function store_settings_store(Request $request)
+    {
+
+        $request->validate([
+            'store_name' => 'required|max:50',
+            'store_address' => 'required|max:50',
+            "store_phone" => 'required|min:10',
+            'store_email' => 'required|email|max:50|unique:users,store_email,' . auth()->id(),
+        ]);
+
+        User::find(auth()->id())->update([
+            "store_name" => $request->store_name,
+            "store_address" => $request->store_address,
+            "store_phone" => $request->store_phone,
+            "store_email" => $request->store_email,
+        ]);
+
+        return redirect()
+            ->route('profile.store.settings')
+            ->with('success', 'Store Information has been updated!');
+    }
+
+    public function store_settings()
+    {
+        return view('profile.store-settings', [
+            'user' => auth()->user(),
+        ]);
     }
 
     /**

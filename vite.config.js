@@ -1,19 +1,17 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+// import laravel from 'tabler-ui';
 
 export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css',
-                'resources/js/app.js',
+                // 'resources/css/app.css',
+                // 'resources/js/app.js',
                 // 'resources/sass/app.scss',
-                // 'resources/css/admin.css',
-                // 'resources/css/tabler.min.css',
-                // 'resources/css/tabler-flags.min.css',
-                // 'resources/css/tabler-payments.min.css',
-                // 'resources/css/tabler-vendors.min.css',
-                // 'resources/css/demo.min.css',
+                'resources/sass/tabler.scss',
+                'resources/js/tabler.js',
+
             ],
             refresh: true,
         }),

@@ -6,16 +6,35 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@popperjs/core": "^2.11.6",
+        "@popperjs/core": "^2.11.8",
+        "@tabler/core": "^1.0.0-beta20",
         "@tailwindcss/forms": "^0.5.2",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
         "axios": "^1.6.4",
-        "bootstrap": "^5.2.3",
+        "bootstrap": "^5.3.3",
+        "bootstrap-datepicker": "^1.10.0",
+        "bootstrap-sass": "^3.4.3",
+        "chart.js": "^4.4.3",
+        "d3": "^7.9.0",
+        "font-awesome": "^4.7.0",
+        "jquery-circle-progress": "^1.2.2",
+        "jvectormap": "^2.0.4",
+        "jvectormap-next": "^3.1.1",
         "laravel-vite-plugin": "^1.0.4",
+        "moment": "^2.30.1",
+        "popper.js": "^1.16.1",
         "postcss": "^8.4.31",
+        "requirejs": "^2.3.6",
         "sass": "^1.77.2",
+        "select2": "^4.1.0-rc.0",
+        "select2-bootstrap-theme": "^0.1.0-beta.10",
+        "sparkline": "^0.2.0",
+        "tablesorter": "^2.31.3",
         "tailwindcss": "^3.1.0",
         "vite": "^5.2.11"
+    },
+    "dependencies": {
+        "lodash": "^4.17.21"
     }
 }
